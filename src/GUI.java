@@ -103,6 +103,7 @@ public class GUI implements ActionListener {
             case "Open": file.open(); break;
             case "Save": file.save(); break;
             case "SaveAs": file.saveAs(); break;
+            case "Exit": file.exit(); break;
 
 
         }
