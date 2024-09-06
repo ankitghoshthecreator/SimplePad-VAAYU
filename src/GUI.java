@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,7 +38,7 @@ public class GUI implements ActionListener {
     public void createTextArea(){
         textArea=new JTextArea();
         scrollPane=new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);// intitalize scroll bar class
-        // in the above line we gave the textAres in it so it will be in it included and we do not need this line window.add(textArea);
+        // in the above line we gave the textAres in it so it will be in it included, and we do not need this line window.add(textArea);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
 
