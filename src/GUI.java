@@ -3,14 +3,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI implements ActionListener {
+    //text area
     JFrame window;
     JTextArea textArea;
+
+    //top menue bar
     JScrollPane scrollPane;
     JMenuBar menuBar;
+
+    //fire menue bar
     JMenu menuFile, menuEdit, menuFormat, menuColor ;
     JMenuItem iNew, iSave, iSaveAs,iExit,iOpen;
 
+    //format menu bar
+    JMenu menuFont, menuFontSize;
+    JMenuItem iWrap;
+
     Function_File file=new Function_File(this);
+    Function_Format format=new Function_Format(this);
 
 
     public static  void main(String[] args){
@@ -21,6 +31,7 @@ public class GUI implements ActionListener {
         createWindow();
         createTextArea();
         createMenuBar();
+        createFormatMenu();
         createFileMenu();
 
 
@@ -89,6 +100,19 @@ public class GUI implements ActionListener {
         iExit.addActionListener(this);
         iExit.setActionCommand("Exit");
         menuFile.add(iExit);
+    }
+
+    public void createFormatMenu(){
+        iWrap= new JMenuItem("Word Wrap: Off");
+        iWrap.addActionListener(this);
+        iWrap.setActionCommand("Word Wrap");
+        menuFormat.add(iWrap);
+
+        menuFont = new JMenu("Font");
+        menuFormat.add(menuFont);
+
+        menuFontSize=new JMenu("Font Size");
+        menuFormat.add(menuFontSize);
     }
 
 
