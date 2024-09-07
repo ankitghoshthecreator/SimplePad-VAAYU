@@ -17,7 +17,7 @@ public class GUI implements ActionListener {
 
     //format menu bar
     JMenu menuFont, menuFontSize;
-    JMenuItem iWrap;
+    JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR;
 
     Function_File file=new Function_File(this);
     Function_Format format=new Function_Format(this);
