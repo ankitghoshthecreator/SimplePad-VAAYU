@@ -6,6 +6,8 @@ public class GUI implements ActionListener {
     //text area
     JFrame window;
     JTextArea textArea;
+    boolean wordWrapOn= false;
+
 
     //top menue bar
     JScrollPane scrollPane;
@@ -163,6 +165,8 @@ public class GUI implements ActionListener {
             case "Save": file.save(); break;
             case "SaveAs": file.saveAs(); break;
             case "Exit": file.exit(); break;
+            case "Word Wrap": format.wordWrap(); break;
+
 
 
         }
