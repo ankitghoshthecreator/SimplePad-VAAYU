@@ -1,5 +1,8 @@
+import java.awt.*;
+
 public class Function_Format {
     GUI gui;
+    Font arial, comicSansMS, timesNewRoman;
 
     Function_Format(GUI gui){
         this.gui=gui;
@@ -16,7 +19,11 @@ public class Function_Format {
             gui.textArea.setWrapStyleWord(false); // line break only after a word
             gui.iWrap.setText("Word Wrap: Off");
         }
-
+    }
+    public void createFont(int fontSize){
+        arial = new Font("Arial", Font.PLAIN, fontSize);
+        comicSansMS = new Font("Comic Sans MS", Font.PLAIN, fontSize);
+        timesNewRoman = new Font("Times New Roman", Font.PLAIN, fontSize);
 
     }
 }
