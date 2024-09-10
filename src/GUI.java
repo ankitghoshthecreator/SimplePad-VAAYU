@@ -29,12 +29,15 @@ public class GUI implements ActionListener {
         new GUI();
     }
 
-    public GUI(){
+    public GUI(){ //constructor
         createWindow();
         createTextArea();
         createMenuBar();
         createFormatMenu();
         createFileMenu();
+        format.selectedFont="Arial";
+        format.createFont(16);
+        format.wordWrap();
 
 
         window.setVisible(true);
@@ -166,6 +169,14 @@ public class GUI implements ActionListener {
             case "SaveAs": file.saveAs(); break;
             case "Exit": file.exit(); break;
             case "Word Wrap": format.wordWrap(); break;
+            case "Arial" : format.setFont(command); break;
+            case "Comic Sans MS" : format.setFont(command); break;
+            case "Times New Roman" : format.setFont(command); break;
+            case "size10": format.createFont(10); break;
+            case "size14": format.createFont(14); break;
+            case "size18": format.createFont(18); break;
+            case "size24": format.createFont(24); break;
+
 
 
 
