@@ -27,6 +27,7 @@ public class GUI implements ActionListener {
 
     Function_File file=new Function_File(this);
     Function_Format format=new Function_Format(this);
+    Function_Color color=new Function_Color(this);
 
 
     public static  void main(String[] args){
@@ -43,6 +44,9 @@ public class GUI implements ActionListener {
         format.selectedFont="Arial";
         format.createFont(16);
         format.wordWrap();
+
+        color.changeColor("White");
+
 
 
         window.setVisible(true);
@@ -196,10 +200,9 @@ public class GUI implements ActionListener {
             case "size14": format.createFont(14); break;
             case "size18": format.createFont(18); break;
             case "size24": format.createFont(24); break;
-
-
-
-
+            case "White": color.changeColor(command);
+            case "Black": color.changeColor(command);
+            case "Blue": color.changeColor(command);
         }
 
     }
