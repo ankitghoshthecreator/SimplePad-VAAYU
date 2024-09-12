@@ -21,6 +21,10 @@ public class GUI implements ActionListener {
     JMenu menuFont, menuFontSize;
     JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR, iFontSize10, iFontSize14, iFontSize18, iFontSize24;
 
+    //color menu
+    JMenuItem iColor1, iColor2,iColor3;
+
+
     Function_File file=new Function_File(this);
     Function_Format format=new Function_Format(this);
 
@@ -35,6 +39,7 @@ public class GUI implements ActionListener {
         createMenuBar();
         createFormatMenu();
         createFileMenu();
+        createColorMenu();
         format.selectedFont="Arial";
         format.createFont(16);
         format.wordWrap();
@@ -153,8 +158,23 @@ public class GUI implements ActionListener {
         iFontSize24.addActionListener(this);
         iFontSize24.setActionCommand("size24");
         menuFontSize.add(iFontSize24);
+    }
 
+    public void createColorMenu(){
+        iColor1=new JMenuItem("White");
+        iColor1.addActionListener(this);
+        iColor1.setActionCommand("White");
+        menuColor.add(iColor1);
 
+        iColor2=new JMenuItem("Black");
+        iColor2.addActionListener(this);
+        iColor2.setActionCommand("Black");
+        menuColor.add(iColor2);
+
+        iColor3=new JMenuItem("Blue");
+        iColor3.addActionListener(this);
+        iColor3.setActionCommand("Blue");
+        menuColor.add(iColor3);
     }
 
 
