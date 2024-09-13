@@ -21,6 +21,9 @@ public class GUI implements ActionListener {
     JMenu menuFont, menuFontSize;
     JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR, iFontSize10, iFontSize14, iFontSize18, iFontSize24;
 
+    //edit menu bar
+    JMenuItem iUndo,iRedo;
+
     //color menu
     JMenuItem iColor1, iColor2,iColor3;
 
@@ -41,6 +44,7 @@ public class GUI implements ActionListener {
         createFormatMenu();
         createFileMenu();
         createColorMenu();
+        createEditMenu();
         format.selectedFont="Arial";
         format.createFont(16);
         format.wordWrap();
@@ -87,6 +91,17 @@ public class GUI implements ActionListener {
         menuEdit=new JMenu("Edit");
         menuBar.add(menuEdit);
         //menu bar items done
+    }
+    public void createEditMenu(){
+        iUndo=new JMenuItem("Undo");
+        iUndo.addActionListener(this);
+        iUndo.setActionCommand("Undo");
+        menuEdit.add(iUndo);
+
+        iRedo=new JMenuItem("Redo");
+        iRedo.addActionListener(this);
+        iRedo.setActionCommand("Redo");
+        menuEdit.add(iUndo);
     }
 
     public void createFileMenu(){
