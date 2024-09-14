@@ -1,4 +1,7 @@
 import javax.swing.*;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.undo.UndoManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,6 +34,9 @@ public class GUI implements ActionListener {
     Function_File file=new Function_File(this);
     Function_Format format=new Function_Format(this);
     Function_Color color=new Function_Color(this);
+    UndoManager um = new UndoManager();
+    Function_Edit edit=new Function_Edit(this);
+
 
 
     public static  void main(String[] args){
@@ -66,6 +72,16 @@ public class GUI implements ActionListener {
 
     public void createTextArea(){
         textArea=new JTextArea();
+
+        textArea.getDocument().addUndoableEditListener(
+                new UndoableEditListener() {
+                    @Override
+                    public void undoableEditHappened(UndoableEditEvent e) {
+                        um.addEdit(e.getEdit());
+                    }
+                }
+        );
+
         scrollPane=new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);// intitalize scroll bar class
         // in the above line we gave the textAres in it so it will be in it included, and we do not need this line window.add(textArea);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -101,7 +117,7 @@ public class GUI implements ActionListener {
         iRedo=new JMenuItem("Redo");
         iRedo.addActionListener(this);
         iRedo.setActionCommand("Redo");
-        menuEdit.add(iUndo);
+        menuEdit.add(iRedo);
     }
 
     public void createFileMenu(){
@@ -218,6 +234,9 @@ public class GUI implements ActionListener {
             case "White": color.changeColor(command);
             case "Black": color.changeColor(command);
             case "Blue": color.changeColor(command);
+            case "Undo": edit.undo(); break;
+            case "Redo": edit.redo(); break;
+
         }
 
     }
